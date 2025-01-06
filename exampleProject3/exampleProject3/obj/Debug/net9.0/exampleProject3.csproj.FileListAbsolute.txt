@@ -12,3 +12,4 @@
 /Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.pdb
 /Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.genruntimeconfig.cache
 /Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/ref/exampleProject3.dll
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.sourcelink.json

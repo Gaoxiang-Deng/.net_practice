@@ -1,150 +1,60 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.Collections.Generic;
+﻿using System;
+using ECommerce.Models;
 
-// 商品接口
-public interface IProduct
+namespace ECommerce
 {
-    string Name { get; }
-    decimal Price { get; }
-    void ApplyDiscount(decimal percentage);
-}
-
-// 具体商品实现
-public class Electronic : IProduct
-{
-    public string Name { get; private set; }
-    public decimal Price { get; private set; }
-    public Electronic(string name, decimal price)
+    public class Program
     {
-        Name = name;
-        Price = price;
-    }
-    public void ApplyDiscount(decimal percentage)
-    {
-        Price -= Price * percentage / 100;
-    }
-}
-
-public class Clothing : IProduct
-{
-    public string Name { get; private set; }
-    public decimal Price { get; private set; }
-    public Clothing(string name, decimal price)
-    {
-        Name = name;
-        Price = price;
-    }
-    public void ApplyDiscount(decimal percentage)
-    {
-        Price -= Price * percentage / 100;
-    }
-}
-
-// 库存管理接口
-public interface IInventoryManager
-{
-    void AddStock(IProduct product, int quantity);
-    bool ReduceStock(IProduct product, int quantity);
-    int GetStock(IProduct product);
-}
-
-// 库存管理实现
-public class InventoryManager : IInventoryManager
-{
-    private readonly Dictionary<IProduct, int> _inventory = new();
-
-    public void AddStock(IProduct product, int quantity)
-    {
-        if (_inventory.ContainsKey(product))
-            _inventory[product] += quantity;
-        else
-            _inventory[product] = quantity;
-    }
-
-    public bool ReduceStock(IProduct product, int quantity)
-    {
-        if (_inventory.ContainsKey(product) && _inventory[product] >= quantity)
+        public static void Main(string[] args)
         {
-            _inventory[product] -= quantity;
-            return true;
-        }
-        return false;
-    }
+            // 初始化库存管理和系统
+            IInventoryManager inventoryManager = new InventoryManager();
+            ECommerceSystem system = new ECommerceSystem(inventoryManager);
 
-    public int GetStock(IProduct product)
-    {
-        return _inventory.ContainsKey(product) ? _inventory[product] : 0;
-    }
-}
+            // 创建商品
+            IProduct laptop = new Electronic("Laptop", 1500);
+            IProduct shirt = new Clothing("Shirt", 50);
 
-// 销售策略接口
-public interface ISalesStrategy
-{
-    void Apply(IProduct product);
-}
+            // 添加库存
+            system.AddStock(laptop, 10);
+            system.AddStock(shirt, 20);
 
-// 折扣策略实现
-public class DiscountStrategy : ISalesStrategy
-{
-    private readonly decimal _discountPercentage;
-    public DiscountStrategy(decimal discountPercentage)
-    {
-        _discountPercentage = discountPercentage;
-    }
-    public void Apply(IProduct product)
-    {
-        product.ApplyDiscount(_discountPercentage);
-    }
-}
+            // 定义销售策略
+            ISalesStrategy discount = new DiscountStrategy(10); // 10% 折扣
 
-// 电子商务系统
-public class ECommerceSystem
-{
-    private readonly IInventoryManager _inventoryManager;
-
-    public ECommerceSystem(IInventoryManager inventoryManager)
-    {
-        _inventoryManager = inventoryManager;
-    }
-
-    public void SellProduct(IProduct product, int quantity, ISalesStrategy salesStrategy)
-    {
-        if (_inventoryManager.ReduceStock(product, quantity))
-        {
-            salesStrategy.Apply(product);
-            Console.WriteLine($"{quantity} units of {product.Name} sold at ${product.Price} each.");
-        }
-        else
-        {
-            Console.WriteLine($"Insufficient stock for {product.Name}.");
+            // 执行销售
+            system.SellProduct(laptop, 2, discount);
+            system.SellProduct(shirt, 5, discount);
         }
     }
 
-    public void AddStock(IProduct product, int quantity)
+    // 电子商务系统
+    public class ECommerceSystem
     {
-        _inventoryManager.AddStock(product, quantity);
-        Console.WriteLine($"{quantity} units of {product.Name} added to inventory.");
-    }
-}
+        private readonly IInventoryManager _inventoryManager;
 
-// 主程序
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        IInventoryManager inventoryManager = new InventoryManager();
-        ECommerceSystem system = new ECommerceSystem(inventoryManager);
+        public ECommerceSystem(IInventoryManager inventoryManager)
+        {
+            _inventoryManager = inventoryManager;
+        }
 
-        IProduct laptop = new Electronic("Laptop", 1500);
-        IProduct shirt = new Clothing("Shirt", 50);
+        public void SellProduct(IProduct product, int quantity, ISalesStrategy salesStrategy)
+        {
+            if (_inventoryManager.ReduceStock(product, quantity))
+            {
+                salesStrategy.Apply(product);
+                Console.WriteLine($"{quantity} units of {product.Name} sold at ${product.Price} each.");
+            }
+            else
+            {
+                Console.WriteLine($"Insufficient stock for {product.Name}.");
+            }
+        }
 
-        system.AddStock(laptop, 10);
-        system.AddStock(shirt, 20);
-
-        ISalesStrategy discount = new DiscountStrategy(10); // 10% 折扣
-
-        system.SellProduct(laptop, 2, discount);
-        system.SellProduct(shirt, 5, discount);
+        public void AddStock(IProduct product, int quantity)
+        {
+            _inventoryManager.AddStock(product, quantity);
+            Console.WriteLine($"{quantity} units of {product.Name} added to inventory.");
+        }
     }
 }
