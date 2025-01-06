@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/exampleProject3.csproj",
-      "projectName": "exampleProject3",
-      "projectPath": "/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/exampleProject3.csproj",
+      "projectUniqueName": "/Users/gaoxiangdeng/RiderProjects/exampleProject3/ECommerce/ECommerce.csproj",
+      "projectName": "ECommerce",
+      "projectPath": "/Users/gaoxiangdeng/RiderProjects/exampleProject3/ECommerce/ECommerce.csproj",
       "packagesPath": "/Users/gaoxiangdeng/.nuget/packages/",
-      "outputPath": "/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/",
+      "outputPath": "/Users/gaoxiangdeng/RiderProjects/exampleProject3/ECommerce/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/gaoxiangdeng/.nuget/NuGet/NuGet.Config"
