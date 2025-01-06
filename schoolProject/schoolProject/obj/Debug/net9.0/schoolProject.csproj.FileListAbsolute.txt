@@ -1,0 +1,14 @@
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/bin/Debug/net9.0/schoolProject
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/bin/Debug/net9.0/schoolProject.deps.json
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/bin/Debug/net9.0/schoolProject.runtimeconfig.json
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/bin/Debug/net9.0/schoolProject.dll
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/bin/Debug/net9.0/schoolProject.pdb
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/schoolProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/schoolProject.AssemblyInfoInputs.cache
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/schoolProject.AssemblyInfo.cs
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/schoolProject.csproj.CoreCompileInputs.cache
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/schoolProject.dll
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/refint/schoolProject.dll
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/schoolProject.pdb
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/schoolProject.genruntimeconfig.cache
+/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/Debug/net9.0/ref/schoolProject.dll

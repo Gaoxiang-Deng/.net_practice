@@ -1,0 +1,14 @@
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/bin/Debug/net9.0/exampleProject3
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/bin/Debug/net9.0/exampleProject3.deps.json
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/bin/Debug/net9.0/exampleProject3.runtimeconfig.json
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/bin/Debug/net9.0/exampleProject3.dll
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/bin/Debug/net9.0/exampleProject3.pdb
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.AssemblyInfoInputs.cache
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.AssemblyInfo.cs
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.csproj.CoreCompileInputs.cache
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.dll
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/refint/exampleProject3.dll
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.pdb
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/exampleProject3.genruntimeconfig.cache
+/Users/gaoxiangdeng/RiderProjects/exampleProject3/exampleProject3/obj/Debug/net9.0/ref/exampleProject3.dll
