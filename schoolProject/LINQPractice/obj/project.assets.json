@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/schoolProject.csproj",
-      "projectName": "schoolProject",
-      "projectPath": "/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/schoolProject.csproj",
+      "projectUniqueName": "/Users/gaoxiangdeng/RiderProjects/schoolProject/LINQPractice/LINQPractice.csproj",
+      "projectName": "LINQPractice",
+      "projectPath": "/Users/gaoxiangdeng/RiderProjects/schoolProject/LINQPractice/LINQPractice.csproj",
       "packagesPath": "/Users/gaoxiangdeng/.nuget/packages/",
-      "outputPath": "/Users/gaoxiangdeng/RiderProjects/schoolProject/schoolProject/obj/",
+      "outputPath": "/Users/gaoxiangdeng/RiderProjects/schoolProject/LINQPractice/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/gaoxiangdeng/.nuget/NuGet/NuGet.Config"
