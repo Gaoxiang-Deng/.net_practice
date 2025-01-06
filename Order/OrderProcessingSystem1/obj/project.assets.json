@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gaoxiangdeng/RiderProjects/Order/Order/Order.csproj",
-      "projectName": "Order",
-      "projectPath": "/Users/gaoxiangdeng/RiderProjects/Order/Order/Order.csproj",
+      "projectUniqueName": "/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/OrderProcessingSystem1.csproj",
+      "projectName": "OrderProcessingSystem1",
+      "projectPath": "/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/OrderProcessingSystem1.csproj",
       "packagesPath": "/Users/gaoxiangdeng/.nuget/packages/",
-      "outputPath": "/Users/gaoxiangdeng/RiderProjects/Order/Order/obj/",
+      "outputPath": "/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/gaoxiangdeng/.nuget/NuGet/NuGet.Config"

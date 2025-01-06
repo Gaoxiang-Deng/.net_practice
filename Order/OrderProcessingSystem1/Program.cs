@@ -17,7 +17,7 @@ namespace OrderProcessingSystem
             order.OnStatusChanged += OrderService.LogStatusChangeAsync;
 
             // 显示订单创建信息
-            Console.WriteLine($"Order {order.OrderId} created with total amount {order.TotalAmount:C}.");
+            Console.WriteLine($"OrderProcessingSystem1 {order.OrderId} created with total amount {order.TotalAmount:C}.");
 
             // 更新订单状态
             await order.UpdateStatusAsync(OrderStatus.Processing);

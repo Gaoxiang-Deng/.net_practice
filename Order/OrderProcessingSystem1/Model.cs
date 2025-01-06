@@ -48,13 +48,13 @@ namespace OrderProcessingSystem.Models
         public static async Task SendEmailNotificationAsync(Order order)
         {
             await Task.Delay(200); // 模拟异步发送邮件
-            Console.WriteLine($"[Email] Order {order.OrderId} status changed to {order.Status}.");
+            Console.WriteLine($"[Email] OrderProcessingSystem1 {order.OrderId} status changed to {order.Status}.");
         }
 
         public static async Task LogStatusChangeAsync(Order order)
         {
             await Task.Delay(100); // 模拟异步日志记录
-            Console.WriteLine($"[Log] Order {order.OrderId} status updated to {order.Status}.");
+            Console.WriteLine($"[Log] OrderProcessingSystem1 {order.OrderId} status updated to {order.Status}.");
         }
     }
 }
