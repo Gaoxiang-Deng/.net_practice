@@ -2,18 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace OrderProcessingSystem.Models
+namespace OrderProcessingSystem1
 {
-    // 订单状态枚举
     public enum OrderStatus
     {
-        Pending,       // 待处理
-        Processing,    // 处理中
-        Shipped,       // 已发货
-        Delivered      // 已交付
+        Pending,      
+        Processing,    
+        Shipped,      
+        Delivered     
     }
-
-    // 订单类
+    
     public class Order
     {
         public string OrderId { get; set; }
@@ -30,8 +28,7 @@ namespace OrderProcessingSystem.Models
             TotalAmount = totalAmount;
             Status = OrderStatus.Pending;
         }
-
-        // 更新订单状态并触发事件通知
+        
         public async Task UpdateStatusAsync(OrderStatus newStatus)
         {
             Status = newStatus;
@@ -41,19 +38,18 @@ namespace OrderProcessingSystem.Models
             }
         }
     }
-
-    // 订单服务
+    
     public static class OrderService
     {
         public static async Task SendEmailNotificationAsync(Order order)
         {
-            await Task.Delay(200); // 模拟异步发送邮件
+            await Task.Delay(200);
             Console.WriteLine($"[Email] OrderProcessingSystem1 {order.OrderId} status changed to {order.Status}.");
         }
 
         public static async Task LogStatusChangeAsync(Order order)
         {
-            await Task.Delay(100); // 模拟异步日志记录
+            await Task.Delay(100);
             Console.WriteLine($"[Log] OrderProcessingSystem1 {order.OrderId} status updated to {order.Status}.");
         }
     }
