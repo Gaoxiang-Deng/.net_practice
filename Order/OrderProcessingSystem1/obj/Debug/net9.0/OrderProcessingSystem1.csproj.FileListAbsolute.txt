@@ -1,0 +1,15 @@
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/bin/Debug/net9.0/OrderProcessingSystem1
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/bin/Debug/net9.0/OrderProcessingSystem1.deps.json
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/bin/Debug/net9.0/OrderProcessingSystem1.runtimeconfig.json
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/bin/Debug/net9.0/OrderProcessingSystem1.dll
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/bin/Debug/net9.0/OrderProcessingSystem1.pdb
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.AssemblyInfoInputs.cache
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.AssemblyInfo.cs
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.csproj.CoreCompileInputs.cache
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.sourcelink.json
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.dll
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/refint/OrderProcessingSystem1.dll
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.pdb
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/OrderProcessingSystem1.genruntimeconfig.cache
+/Users/gaoxiangdeng/RiderProjects/Order/OrderProcessingSystem1/obj/Debug/net9.0/ref/OrderProcessingSystem1.dll
