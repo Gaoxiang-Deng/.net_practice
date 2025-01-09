@@ -12,11 +12,11 @@ builder.Services.AddSwaggerGen(options =>
     {
         Title = "Students API",
         Version = "v1",
-        Description = "A simple API to manage students"
+        Description = "A complete API to manage students with filtering, sorting, and pagination"
     });
 });
 
-// Add temporary CORS policy
+// Add CORS policy
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -30,29 +30,23 @@ builder.Services.AddCors(options =>
 // Add StudentService
 builder.Services.AddSingleton<StudentService>();
 
-// Configure Kestrel server to use port 5001
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(5001); // Bind to port 5001
-});
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
+// Configure middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Students API v1");
-        options.RoutePrefix = string.Empty; // Set Swagger UI at the root
+        options.RoutePrefix = string.Empty;
     });
 }
 
 app.UseCors();
 app.UseHttpsRedirection();
 
-// Map controllers
+// Map endpoints from controllers
 app.MapStudentEndpoints();
 
 app.Run();
