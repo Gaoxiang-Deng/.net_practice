@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "PCRIvu4CnEEWWukuYR574zwIq/z8zHv0gq07qogzJJY=",
+  "Source": "apiExample",
+  "BasePath": "_content/apiExample",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
