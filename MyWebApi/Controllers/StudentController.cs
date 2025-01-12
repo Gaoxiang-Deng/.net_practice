@@ -10,17 +10,33 @@ public static class StudentController
     {
         var route = "/students";
 
-        app.MapPost(route, ([FromServices] StudentService service, [FromBody] Student student) =>
+        // 查询学生列表（支持分页、筛选、排序）
+        app.MapGet(route, ([FromServices] StudentService service, [FromQuery] string? major, [FromQuery] string? order, [FromQuery] int? page, [FromQuery] int? size) =>
         {
-            service.AddStudent(student);
-            return Results.Created($"{route}/{student.Id}", student);
-        }).WithName("AddStudent");
+            var students = service.GetAllStudents();
 
-        app.MapGet(route, ([FromServices] StudentService service) =>
-        {
-            return Results.Ok(service.GetAllStudents());
-        }).WithName("GetAllStudents");
+            // 筛选
+            if (!string.IsNullOrEmpty(major))
+            {
+                students = service.FilterByMajor(major);
+            }
 
+            // 排序
+            if (!string.IsNullOrEmpty(order))
+            {
+                students = service.SortByGPA(order);
+            }
+
+            // 分页
+            if (page.HasValue && size.HasValue)
+            {
+                students = service.GetStudentsByPage(students, page.Value, size.Value);
+            }
+
+            return Results.Ok(students);
+        }).WithName("GetStudents");
+
+        // 查询单个学生
         app.MapGet($"{route}/{{id}}", ([FromServices] StudentService service, int id) =>
         {
             var student = service.GetStudentById(id);
@@ -28,6 +44,14 @@ public static class StudentController
             return Results.Ok(student);
         }).WithName("GetStudentById");
 
+        // 添加学生
+        app.MapPost(route, ([FromServices] StudentService service, [FromBody] Student student) =>
+        {
+            service.AddStudent(student);
+            return Results.Created($"{route}/{student.Id}", student);
+        }).WithName("AddStudent");
+
+        // 更新学生
         app.MapPut($"{route}/{{id}}", ([FromServices] StudentService service, int id, [FromBody] Student updatedStudent) =>
         {
             if (!service.UpdateStudent(id, updatedStudent))
@@ -37,6 +61,7 @@ public static class StudentController
             return Results.Ok(updatedStudent);
         }).WithName("UpdateStudent");
 
+        // 删除学生
         app.MapDelete($"{route}/{{id}}", ([FromServices] StudentService service, int id) =>
         {
             if (!service.DeleteStudent(id))
@@ -45,24 +70,5 @@ public static class StudentController
             }
             return Results.Ok($"Student with ID {id} deleted successfully.");
         }).WithName("DeleteStudent");
-
-        app.MapGet($"{route}/filter", ([FromServices] StudentService service, [FromQuery] string major) =>
-        {
-            var students = service.FilterByMajor(major);
-            if (!students.Any()) return Results.NotFound($"No students found for major {major}.");
-            return Results.Ok(students);
-        }).WithName("FilterByMajor");
-
-        app.MapGet($"{route}/sort", ([FromServices] StudentService service, [FromQuery] string order) =>
-        {
-            return Results.Ok(service.SortByGPA(order));
-        }).WithName("SortByGPA");
-
-        app.MapGet($"{route}/page", ([FromServices] StudentService service, [FromQuery] int pageNumber, [FromQuery] int pageSize) =>
-        {
-            var students = service.GetStudentsByPage(pageNumber, pageSize);
-            if (!students.Any()) return Results.NotFound("No students found for the given page.");
-            return Results.Ok(students);
-        }).WithName("PaginateStudents");
     }
 }
