@@ -107,3 +107,5 @@
 /Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/MyWebApi.pdb
 /Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/MyWebApi.genruntimeconfig.cache
 /Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/ref/MyWebApi.dll
+/Users/gaoxiangdeng/RiderProjects/MyWebApi/bin/Debug/net9.0/MyWebApi.staticwebassets.runtime.json
+/Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/compressed/1cpgy1uhme-2ul9pene4n.gz

@@ -4,71 +4,72 @@ using MyWebApi.Services;
 
 namespace MyWebApi.Controllers;
 
-public static class StudentController
+[ApiController]
+[Route("students")]
+public class StudentController(StudentService service) : ControllerBase
 {
-    public static void MapStudentEndpoints(this WebApplication app)
+    private readonly StudentService _service = service;
+
+    [HttpGet]
+    public IActionResult GetStudents([FromQuery] string? major, [FromQuery] string? order, [FromQuery] int? page, [FromQuery] int? size)
     {
-        var route = "/students";
+        var students = _service.GetAllStudents();
 
-        // 查询学生列表（支持分页、筛选、排序）
-        app.MapGet(route, ([FromServices] StudentService service, [FromQuery] string? major, [FromQuery] string? order, [FromQuery] int? page, [FromQuery] int? size) =>
+        // 筛选
+        if (!string.IsNullOrEmpty(major))
         {
-            var students = service.GetAllStudents();
+            students = _service.FilterByMajor(major);
+        }
 
-            // 筛选
-            if (!string.IsNullOrEmpty(major))
-            {
-                students = service.FilterByMajor(major);
-            }
-
-            // 排序
-            if (!string.IsNullOrEmpty(order))
-            {
-                students = service.SortByGPA(order);
-            }
-
-            // 分页
-            if (page.HasValue && size.HasValue)
-            {
-                students = service.GetStudentsByPage(students, page.Value, size.Value);
-            }
-
-            return Results.Ok(students);
-        }).WithName("GetStudents");
-
-        // 查询单个学生
-        app.MapGet($"{route}/{{id}}", ([FromServices] StudentService service, int id) =>
+        // 排序
+        if (!string.IsNullOrEmpty(order))
         {
-            var student = service.GetStudentById(id);
-            if (student == null) return Results.NotFound($"Student with ID {id} not found.");
-            return Results.Ok(student);
-        }).WithName("GetStudentById");
+            students = _service.SortByGPA(order);
+        }
 
-        // 添加学生
-        app.MapPost(route, ([FromServices] StudentService service, [FromBody] Student student) =>
+        // 分页
+        if (page.HasValue && size.HasValue)
         {
-            service.AddStudent(student);
-            return Results.Created($"{route}/{student.Id}", student);
-        }).WithName("AddStudent");
+            students = _service.GetStudentsByPage(students, page.Value, size.Value);
+        }
 
-        // 更新学生
-        app.MapPut($"{route}/{{id}}", ([FromServices] StudentService service, int id, [FromBody] Student updatedStudent) =>
-        {
-            if (!service.UpdateStudent(id, updatedStudent))
-            {
-                return Results.NotFound($"Student with ID {id} not found.");
-            }
-            return Results.Ok(updatedStudent);
-        }).WithName("UpdateStudent");
+        return Ok(students);
+    }
 
-        // 删除学生
-        app.MapDelete($"{route}/{{id}}", ([FromServices] StudentService service, int id) =>
+    [HttpGet("{id}")]
+    public IActionResult GetStudentById(int id)
+    {
+        var student = _service.GetStudentById(id);
+        if (student == null) return NotFound(new { Message = $"Student with ID {id} not found." });
+        return Ok(student);
+    }
+
+    [HttpPost]
+    public IActionResult AddStudent([FromBody] Student student)
+    {
+        _service.AddStudent(student);
+        return CreatedAtAction(nameof(GetStudentById), new { id = student.Id }, student);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult UpdateStudent(int id, [FromBody] Student updatedStudent)
+    {
+        if (!_service.UpdateStudent(id, updatedStudent))
         {
-            if (!service.DeleteStudent(id))
-            {
-                return Results.NotFound($"Student with ID {id} not found.");
-            }
-            return Results.Ok($"Student with ID {id} deleted successfully.");
-        }).WithName("DeleteStudent");
+            return NotFound(new { Message = $"Student with ID {id} not found." });
+        }
+
+        var student = _service.GetStudentById(id); // 获取更新后的学生信息
+        return Ok(student);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteStudent(int id)
+    {
+        if (!_service.DeleteStudent(id))
+        {
+            return NotFound(new { Message = $"Student with ID {id} not found." });
+        }
+        return Ok(new { Message = $"Student with ID {id} deleted successfully." });
     }
 }

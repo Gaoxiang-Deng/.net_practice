@@ -1,12 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using MyWebApi.Controllers;
 using MyWebApi.Data;
 using MyWebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySql(
+        "Server=localhost;Database=studentsdb;User=root;Password=hyP3x!sd;",
+        new MySqlServerVersion(new Version(8, 0, 32))
+    ));
+builder.Services.AddScoped<StudentService>();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -17,31 +22,16 @@ builder.Services.AddSwaggerGen(options =>
         Description = "A complete API to manage students with database integration"
     });
 });
-
-// Add CORS policy
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader();
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
     });
 });
 
-// Configure database context
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(
-        "Server=localhost;Database=studentsdb;User=root;Password=hyP3x!sd;",
-        new MySqlServerVersion(new Version(9, 1, 0)) // 替换为实际 MySQL 版本
-    ));
-
-// Add StudentService
-builder.Services.AddScoped<StudentService>();
-
 var app = builder.Build();
 
-// Apply migrations and seed data
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -49,7 +39,6 @@ using (var scope = app.Services.CreateScope())
     ApplicationDbContext.SeedData(dbContext);
 }
 
-// Configure middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -62,8 +51,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors();
 app.UseHttpsRedirection();
-
-// Map endpoints from controllers
-app.MapStudentEndpoints();
-
+app.UseAuthorization();
+app.MapControllers();
 app.Run();

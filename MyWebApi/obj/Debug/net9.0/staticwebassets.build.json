@@ -1,12 +1,362 @@
 {
   "Version": 1,
-  "Hash": "fIHSIze6APZxcTryB7VltuMvu6zcNnc2aOQ0qfPhGbs=",
+  "Hash": "VpJHvbAjdGro5Y6Niq5W/Y47PvZnggR8ldZ89zWK9XI=",
   "Source": "MyWebApi",
   "BasePath": "_content/MyWebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "MyWebApi/wwwroot",
+      "Source": "MyWebApi",
+      "ContentRoot": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/wwwroot/",
+      "BasePath": "_content/MyWebApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/compressed/1cpgy1uhme-2ul9pene4n.gz",
+      "SourceId": "MyWebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/MyWebApi",
+      "RelativePath": "index#[.{fingerprint=2ul9pene4n}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/wwwroot/index.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "vpdp9a18z6",
+      "Integrity": "szKvvG10ayUwaF1JAIwZdBpogo03x8D2npxWgpsVWlI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/wwwroot/index.html"
+    },
+    {
+      "Identity": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/wwwroot/index.html",
+      "SourceId": "MyWebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/wwwroot/",
+      "BasePath": "_content/MyWebApi",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2ul9pene4n",
+      "Integrity": "NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "index.2ul9pene4n.html",
+      "AssetFile": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/compressed/1cpgy1uhme-2ul9pene4n.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.009523809524"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"szKvvG10ayUwaF1JAIwZdBpogo03x8D2npxWgpsVWlI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 12 Jan 2025 04:55:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2ul9pene4n"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk="
+        }
+      ]
+    },
+    {
+      "Route": "index.2ul9pene4n.html",
+      "AssetFile": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/wwwroot/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "122"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 12 Jan 2025 04:55:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2ul9pene4n"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk="
+        }
+      ]
+    },
+    {
+      "Route": "index.2ul9pene4n.html.gz",
+      "AssetFile": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/compressed/1cpgy1uhme-2ul9pene4n.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"szKvvG10ayUwaF1JAIwZdBpogo03x8D2npxWgpsVWlI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 12 Jan 2025 04:55:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2ul9pene4n"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-szKvvG10ayUwaF1JAIwZdBpogo03x8D2npxWgpsVWlI="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/compressed/1cpgy1uhme-2ul9pene4n.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.009523809524"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"szKvvG10ayUwaF1JAIwZdBpogo03x8D2npxWgpsVWlI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 12 Jan 2025 04:55:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/wwwroot/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "122"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 12 Jan 2025 04:55:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NojxloiCaJ2FfpuqEr624GWDm5iMm44mFCwPYshJljk="
+        }
+      ]
+    },
+    {
+      "Route": "index.html.gz",
+      "AssetFile": "/Users/gaoxiangdeng/RiderProjects/MyWebApi/obj/Debug/net9.0/compressed/1cpgy1uhme-2ul9pene4n.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"szKvvG10ayUwaF1JAIwZdBpogo03x8D2npxWgpsVWlI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 12 Jan 2025 04:55:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-szKvvG10ayUwaF1JAIwZdBpogo03x8D2npxWgpsVWlI="
+        }
+      ]
+    }
+  ]
 }
