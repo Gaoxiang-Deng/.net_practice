@@ -15,22 +15,60 @@ public class StudentController(StudentService service) : ControllerBase
     {
         var students = _service.GetAllStudents();
 
-        // 筛选
         if (!string.IsNullOrEmpty(major))
         {
             students = _service.FilterByMajor(major);
         }
 
-        // 排序
         if (!string.IsNullOrEmpty(order))
         {
             students = _service.SortByGPA(order);
         }
 
-        // 分页
         if (page.HasValue && size.HasValue)
         {
             students = _service.GetStudentsByPage(students, page.Value, size.Value);
+        }
+
+        return Ok(students);
+    }
+
+    [HttpGet("filter")]
+    public IActionResult FilterStudents([FromQuery] string? major)
+    {
+        if (string.IsNullOrEmpty(major))
+        {
+            return BadRequest(new { Message = "Major query parameter is required." });
+        }
+
+        var students = _service.FilterByMajor(major);
+        if (!students.Any())
+        {
+            return NotFound(new { Message = $"No students found for major: {major}" });
+        }
+
+        return Ok(students);
+    }
+
+    [HttpGet("sort")]
+    public IActionResult SortStudents([FromQuery] string order = "asc")
+    {
+        var students = _service.SortByGPA(order);
+        if (!students.Any())
+        {
+            return NotFound(new { Message = "No students found to sort." });
+        }
+
+        return Ok(students);
+    }
+
+    [HttpGet("page")]
+    public IActionResult PaginateStudents([FromQuery] int page = 1, [FromQuery] int size = 10)
+    {
+        var students = _service.GetStudentsByPage(_service.GetAllStudents(), page, size);
+        if (!students.Any())
+        {
+            return NotFound(new { Message = $"No students found for page {page} with size {size}." });
         }
 
         return Ok(students);

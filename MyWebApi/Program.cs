@@ -5,10 +5,16 @@ using MyWebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure sensitive information via appsettings.json or environment variables
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+                       "Server=localhost;Database=studentsdb;User=root;Password=yourpassword;";
+
+// Add services to the container
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
-        "Server=localhost;Database=studentsdb;User=root;Password=hyP3x!sd;",
-        new MySqlServerVersion(new Version(8, 0, 32))
+        connectionString,
+        new MySqlServerVersion(new Version(8, 0, 32)),
+        mysqlOptions => mysqlOptions.EnableStringComparisonTranslations()
     ));
 builder.Services.AddScoped<StudentService>();
 builder.Services.AddControllers();
@@ -32,6 +38,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Apply database migrations and seed data
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
