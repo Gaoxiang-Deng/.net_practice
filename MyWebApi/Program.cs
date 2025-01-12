@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using MyWebApi.Controllers;
+using MyWebApi.Data;
 using MyWebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +14,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Title = "Students API",
         Version = "v1",
-        Description = "A complete API to manage students with filtering, sorting, and pagination"
+        Description = "A complete API to manage students with database integration"
     });
 });
 
@@ -27,10 +29,25 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Configure database context
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySql(
+        "Server=localhost;Database=studentsdb;User=root;Password=hyP3x!sd;",
+        new MySqlServerVersion(new Version(9, 1, 0)) // 替换为实际 MySQL 版本
+    ));
+
 // Add StudentService
-builder.Services.AddSingleton<StudentService>();
+builder.Services.AddScoped<StudentService>();
 
 var app = builder.Build();
+
+// Apply migrations and seed data
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+    ApplicationDbContext.SeedData(dbContext);
+}
 
 // Configure middleware
 if (app.Environment.IsDevelopment())
